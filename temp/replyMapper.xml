@@ -1,0 +1,47 @@
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwce.mappers.ReplyMapper">
+	<select id="list" resultMap="ReplyResultMap">
+	<![CDATA[
+	SELECT
+		   bno,
+		   rno,
+		   content,
+		   writer,
+		   regdate
+	  FROM tbl_reply
+	 WHERE bno > 0
+	 ORDER BY rno DESC,
+	 		  regdate DESC
+	]]>
+	</select>
+	
+	<insert id="create">
+	INSERT
+		INTO tbl_reply
+			( bno,
+			 content,
+			 writer )
+	VALUES
+		( #{bno},
+		  #{content},
+		  #{writer} )
+	</insert>
+	
+	<update id="update">
+	UPDATE tbl_reply
+	   SET content =#{content}
+	 WHERE rno =#{rno}
+	</update>
+	
+	<delete id="delete">
+	DELETE
+	  FROM tbl_reply
+	 WHERE rno =#{rno}
+	</delete>
+	
+</mapper>
+-->
