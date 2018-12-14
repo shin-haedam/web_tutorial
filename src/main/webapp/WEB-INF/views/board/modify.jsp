@@ -42,6 +42,7 @@
 					</div>
 					<div class="form-group">
 						<label>비밀번호</label> <input class="form-control" name='password' placeholder="비밀번호를 입력하세요">
+						<input type="hidden" id="old_password" value="${boardVO.password}">
 					</div>
 					
 					<button id="ModiBtn" class="btn btn-default">수정</button>
@@ -83,7 +84,7 @@ $(document).ready(function(){
 			$("textarea[name='content']").focus();
 			return false;다
 		}
-		if($("input[name=password]").val() != "${boardVO.password}") {
+		if($("input[name=password]").val() != $('#old_password').val()) {
 			alert("비밀번호가 다릅니다!");
 			$("input[name='password']").focus();
 			return false;
