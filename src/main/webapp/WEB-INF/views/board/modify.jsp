@@ -88,6 +88,11 @@ $(document).ready(function(){
 			$("input[name='password']").focus();
 			return false;
 		}
+		if($("input[name=password]").val()!=${boardVO.password}){
+			alert("비밀번호가 일치하지 않습니다!");
+			$("input[name='password']").focus();
+			return false;
+		}
 		return true;
 	});
 });
