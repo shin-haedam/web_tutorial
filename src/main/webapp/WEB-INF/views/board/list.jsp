@@ -13,9 +13,9 @@
 		<div class="panel panel-default">
 		
 			<div class="panel-heading">
-				BoardList Page
+				Review List
 				<button id='regBtn' type="button" onclick="location.href='/board/register'" class="btn btn-xs pull-right">
-				Register New Board</button>
+				Register New Review</button>
 			</div><!-- /.panel-heading -->
 			
 			<div class="panel-body">
