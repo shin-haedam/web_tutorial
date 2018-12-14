@@ -87,9 +87,9 @@
 						readonly="readonly"><c:out value="${boardVO.content}" /></textarea>
 				</div>
 				
-				<button id="ModiBtn" class="btn btn-default">Modify</button>
-				<button id="ListBtn" class="btn btn-default" onclick="location.href='/board/list'">List</button>
-				<button id="DelBtn" class="btn btn-default">Delete</button>
+				<button id="ModiBtn" class="btn btn-default">수정</button>
+				<button id="ListBtn" class="btn btn-default" onclick="location.href='/board/list'">목록</button>
+				<button id="DelBtn" class="btn btn-default">삭제</button>
 				
 				<form id="Form" method="post">
 					<input type="hidden" name="bno" value="${boardVO.bno}">

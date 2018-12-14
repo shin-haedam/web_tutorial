@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			  book_title,
 			  content,
 			  writer,
-			  rating,
+			  rating
 			  )
 	VALUES
 		( #{title},
