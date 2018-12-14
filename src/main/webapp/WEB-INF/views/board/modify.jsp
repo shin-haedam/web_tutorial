@@ -81,10 +81,10 @@ $(document).ready(function(){
 		if($("textarea[name=content]").val()==""){
 			alert("내용을 입력하세요!");
 			$("textarea[name='content']").focus();
-			return false;
+			return false;다
 		}
-		if($("input[name=password]").val()==""){
-			alert("비밀번호를 입력하세요!");
+		if($("input[name=password]" != "${BoardVO.password}").val()==""){
+			alert("비밀번호가 다릅니다!");
 			$("input[name='password']").focus();
 			return false;
 		}
