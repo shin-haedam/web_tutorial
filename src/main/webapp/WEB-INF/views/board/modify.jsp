@@ -40,6 +40,9 @@
 					<div class="form-group">
 						<label>작성자</label> <input class="form-control" name='writer' value="${boardVO.writer}"  readonly="readonly">
 					</div>
+					<div class="form-group">
+						<label>비밀번호</label> <input class="form-control" name='password' placeholder="비밀번호를 입력하세요">
+					</div>
 					
 					<button id="ModiBtn" class="btn btn-default">수정</button>
 					<button id="ListBtn" class="btn btn-default">취소</button>
@@ -78,6 +81,11 @@ $(document).ready(function(){
 		if($("textarea[name=content]").val()==""){
 			alert("내용을 입력하세요!");
 			$("textarea[name='content']").focus();
+			return false;
+		}
+		if($("input[name=password]").val()==""){
+			alert("비밀번호를 입력하세요!");
+			$("input[name='password']").focus();
 			return false;
 		}
 		return true;

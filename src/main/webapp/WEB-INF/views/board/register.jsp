@@ -40,6 +40,10 @@
 					<div class="form-group">
 						<label>작성자</label> <input class="form-control" name='writer' placeholder="작성자를 입력하세요">
 					</div>
+					<div class="form-group">
+						<label>비밀번호</label> <input class="form-control" name='password' placeholder="비밀번호를 입력하세요">
+					</div>
+					
 					<button id="SubmitBtn" type="submit" class="btn btn-default">등록</button>
 
 					<button type="reset" class="btn btn-default">초기화</button>
@@ -83,9 +87,14 @@ $(document).ready(function(){
 			$("input[name='content']").focus();
 			return false;
 		}
-		if($("input[name='writer']").val()==""){
+		if($("input[name=writer]").val()==""){
 			alert("이름을 입력하세요!");
 			$("input[name='writer']").focus();
+			return false;
+		}
+		if($("input[name=password]").val()==""){
+			alert("비밀번호를 입력하세요!");
+			$("input[name='password']").focus();
 			return false;
 		}
 	});
