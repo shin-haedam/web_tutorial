@@ -15,7 +15,7 @@
 			<div class="panel-heading">Review Modify</div><!-- /.panel-heading -->
 			
 			<div class="panel-body">
-				<form role="form" method="post" action="/board/modify">
+				<form role="form" method="post" action="/board/modify?bno=${boardVO.bno }">
 					<div class="form-group">
 						<label>제목</label> <input class="form-control" name='title' value="${boardVO.title}">
 					</div>
