@@ -5,11 +5,18 @@ import java.util.Date;
 public class BoardVO {
 	private Integer bno;
 	private String title;
+	private String book_title;
 	private String content;
 	private String writer;
 	private Date regdate;
 	private int viewcnt;
+	private int rating;
 	
+	@Override
+	public String toString() {
+		return "BoardVO [bno=" + bno + ", title=" + title + ", book_title=" + book_title + ", content=" + content
+				+ ", writer=" + writer + ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", rating=" + rating + "]";
+	}
 	public Integer getBno() {
 		return bno;
 	}
@@ -19,13 +26,14 @@ public class BoardVO {
 	public String getTitle() {
 		return title;
 	}
-	@Override
-	public String toString() {
-		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", wwriter=" + writer
-				+ ", regdate=" + regdate + ", viewcnt=" + viewcnt + "]";
-	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getBook_title() {
+		return book_title;
+	}
+	public void setBook_title(String book_title) {
+		this.book_title = book_title;
 	}
 	public String getContent() {
 		return content;
@@ -51,4 +59,12 @@ public class BoardVO {
 	public void setViewcnt(int viewcnt) {
 		this.viewcnt = viewcnt;
 	}
+	public int getRating() {
+		return rating;
+	}
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+	
+	
 }
