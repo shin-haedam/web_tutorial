@@ -83,7 +83,7 @@ $(document).ready(function(){
 			$("textarea[name='content']").focus();
 			return false;다
 		}
-		if($("input[name=password]" != "${boardVO.password}").val()==""){
+		if($("input[name=password]" != "${boardVO.password}")) {
 			alert("비밀번호가 다릅니다!");
 			$("input[name='password']").focus();
 			return false;
