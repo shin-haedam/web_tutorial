@@ -14,7 +14,7 @@
 		
 			
 			<div class="panel-heading">
-				<input class="form-control" name='title' value='<c:out value="[${boardVO.bno}] ${boardVO.title}"/>' readonly="readonly">
+				<span><c:out value="[${boardVO.bno}] ${boardVO.title}"/></span>
 			</div><!-- /.panel-heading -->
 			
 			<div class="panel-body">
@@ -24,24 +24,57 @@
 					<img class="image" src="https://images-na.ssl-images-amazon.com/images/I/51UI%2BjSc4eL.jpg" width="150" height="200">
 				</td>
 				
-				<td>
-				
+				<td width="10" height="200">
+					<span></span>
 				</td>
 										
 				<td class="panel-col">
-					<strong>책 제목</strong> <span class="bname"><c:out value="~책 제목~"/></span>
+					
+					<p>
+					<strong>책 제목</strong>
 					<br>
-					<strong>평점</strong>	 <span class="rating"><c:out value="★★★"/></span>
-					<br>
-					<strong>작성자</strong> <span class="writer"><c:out value="${boardVO.writer}"/></span>
+					<strong>평점</strong>
+					</p>
+					
+					<p>
+					<strong>작성자</strong>
 					<br>
 					<strong>작성일</strong>
-					<span class="regdate"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}"/></span>
 					<br>
-					<span class="viewcnt">조회수 ${boardVO.viewcnt}</span>
+					<strong>조회수</strong>
+					</p>
 					
 				</td>
 				
+				<td width="5" height="200">
+					<span></span>
+				</td>
+				
+				<td class="panel-col">
+					<p>
+					<span class="bname"><c:out value="${boardVO.book_title}"/></span>
+					<br>
+					<span class="rating">
+						<c:choose>
+							<c:when test="${boardVO.rating == 1}">★☆☆☆☆</c:when>
+							<c:when test="${boardVO.rating == 2}">★★☆☆☆</c:when>
+							<c:when test="${boardVO.rating == 3}">★★★☆☆</c:when>
+							<c:when test="${boardVO.rating == 4}">★★★★☆</c:when>
+							<c:when test="${boardVO.rating == 5}">★★★★★</c:when>
+							<c:otherwise>☆☆☆☆☆</c:otherwise>
+						</c:choose>
+					</span>
+					</p>
+					
+					<p>
+					<span class="writer"><c:out value="${boardVO.writer}"/></span>
+					<br>
+					<span class="regdate"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}"/></span>
+					<br>
+					<span class="viewcnt">${boardVO.viewcnt}</span>
+					</p>
+					
+				</td>
 				
 				</tr>
 			</table>
