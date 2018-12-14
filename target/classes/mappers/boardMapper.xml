@@ -7,22 +7,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	INSERT
 		INTO tbl_board
 			( title,
-			 content,
-			 writer )
+			  book_title,
+			  content,
+			  writer,
+			  rating,
+			  )
 	VALUES
 		( #{title},
+		  #{book_title},
 		  #{content},
-		  #{writer} )
+		  #{writer},
+		  #{rating}
+		   )
 	</insert>
 	
 	<select id="read" resultType="com.kwce.domain.BoardVO">
 	SELECT
 			bno,
 			title,
+			book_title,
 			content,
 			writer,
 			regdate,
-			viewcnt
+			viewcnt,
+			rating
 	  FROM 	tbl_board
 	 WHERE  bno = #{bno}
 	</select>
@@ -30,7 +38,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="update">
 	UPDATE tbl_board
 	   SET title =#{title},
-	   	   content =#{content}
+	   	   content =#{content},
+	   	   book_title =#{book_title},
+	   	   rating =#{rating}
 	 WHERE bno =#{bno}
 	</update>
 	
@@ -45,10 +55,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT
 		   bno,
 		   title,
+		   book_title,
 		   content,
 		   writer,
 		   regdate,
-		   viewcnt
+		   viewcnt,
+		   rating
 	  FROM tbl_board
 	 WHERE bno > 0
 	 ORDER BY bno DESC,
