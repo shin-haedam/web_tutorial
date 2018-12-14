@@ -14,7 +14,7 @@
 		
 			
 			<div class="panel-heading">
-				<input class="form-control" name='title' value='<c:out value="[${boardVO.bno}] ${boardVO.title}"/>' readonly="readonly">
+				<span><c:out value="[${boardVO.bno}] ${boardVO.title}"/></span>
 			</div><!-- /.panel-heading -->
 			
 			<div class="panel-body">
