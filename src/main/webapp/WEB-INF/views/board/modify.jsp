@@ -12,87 +12,38 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 		
-			<div class="panel-heading">
-					<div class="form-group">
-						<input class="form-control" name='title' value='<c:out value="${boardVO.title}"/>'>
-					</div>
-			</div><!-- /.panel-heading -->
+			<div class="panel-heading">Review Modify</div><!-- /.panel-heading -->
 			
 			<div class="panel-body">
-			<table>
-				<tr>
-				<td class="panel-col">
-					<img class="image" src="https://images-na.ssl-images-amazon.com/images/I/51UI%2BjSc4eL.jpg" width="150" height="200">
-				</td>
-				
-				<td width="10" height="200">
-					<span></span>
-				</td>
-										
-				<td class="panel-col">
-					
-					<p>
-					<strong>책 제목</strong>
-					<br>
-					<strong>평점</strong>
-					</p>
-					
-					<p>
-					<strong>작성자</strong>
-					<br>
-					<strong>작성일</strong>
-					<br>
-					<strong>조회수</strong>
-					</p>
-					
-				</td>
-				
-				<td width="5" height="200">
-					<span></span>
-				</td>
-				
-				<td class="panel-col">
-					<p>
-					<span class="bname"><c:out value="${boardVO.book_title}"/></span>
-					<br>
-					<span class="rating">
-						<c:choose>
-							<c:when test="${boardVO.rating == 1}">★☆☆☆☆</c:when>
-							<c:when test="${boardVO.rating == 2}">★★☆☆☆</c:when>
-							<c:when test="${boardVO.rating == 3}">★★★☆☆</c:when>
-							<c:when test="${boardVO.rating == 4}">★★★★☆</c:when>
-							<c:when test="${boardVO.rating == 5}">★★★★★</c:when>
-							<c:otherwise>☆☆☆☆☆</c:otherwise>
-						</c:choose>
-					</span>
-					</p>
-					
-					<p>
-					<span class="writer"><c:out value="${boardVO.writer}"/></span>
-					<br>
-					<span class="regdate"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}"/></span>
-					<br>
-					<span class="viewcnt">${boardVO.viewcnt}</span>
-					</p>
-					
-				</td>
-				
-				</tr>
-			</table>
-			</div>
-			
-			<div class="panel-body">
-				
 				<form role="form" method="post" action="/board/modify">
 					<div class="form-group">
-						<textarea class="form-control" rows="3" name='content'
-							><c:out value="${boardVO.content}" /></textarea>
+						<label>제목</label> <input class="form-control" name='title' value="${boardVO.title}">
+					</div>
+					<div class="form-group">
+						<label>도서명</label> <input class="form-control" name='book_title' value="${boardVO.book_title}">
+					</div>
+					<div class="form-group">
+						<label>평점</label>
+						<select class="form-control" name='rating'>
+							<option value="">평점을 선택하세요</option>
+							<option value="1">★☆☆☆☆</option>
+							<option value="2">★★☆☆☆</option>
+							<option value="3">★★★☆☆</option>
+							<option value="4">★★★★☆</option>
+							<option value="5">★★★★★</option>
+						</select>						
+					</div>
+					<div class="form-group">
+						<label>내용</label>
+						<textarea class="form-control" rows="3" name='content'><c:out value="${boardVO.content}" /></textarea>
+					</div>
+					<div class="form-group">
+						<label>작성자</label> <input class="form-control" name='writer' value="${boardVO.writer}"  readonly="readonly">
 					</div>
 					
-					<button id="ModiBtn" class="btn btn-default">Modify</button>
-					<button id="ListBtn" class="btn btn-default" onclick="location.href='/board/list'">List</button>
+					<button id="ModiBtn" class="btn btn-default">수정</button>
+					<button id="ListBtn" class="btn btn-default">취소</button>
 				</form>
-				
 			</div><!-- end panel-body -->
 				
 		</div><!-- end panel -->
@@ -114,9 +65,19 @@ $(document).ready(function(){
 			$("input[name='title']").focus();
 			return false;
 		}
+		if($("input[name=book_title]").val()==""){
+			alert("도서명을 입력하세요!");
+			$("input[name='book_title']").focus();
+			return false;
+		}
+		if($("select[name=rating]").val()==""){
+			alert("평점을 선택하세요!");
+			$("select[name='rating']").focus();
+			return false;
+		}
 		if($("textarea[name=content]").val()==""){
 			alert("내용을 입력하세요!");
-			$("input[name='content']").focus();
+			$("textarea[name='content']").focus();
 			return false;
 		}
 		return true;
