@@ -14,7 +14,7 @@
 		
 			
 			<div class="panel-heading">
-				<span><c:out value="[${boardVO.bno}] ${boardVO.title}"/></span>
+				<input class="form-control" name='title' value='<c:out value="[${boardVO.bno}] ${boardVO.title}"/>' readonly="readonly">
 			</div><!-- /.panel-heading -->
 			
 			<div class="panel-body">
@@ -24,51 +24,24 @@
 					<img class="image" src="https://images-na.ssl-images-amazon.com/images/I/51UI%2BjSc4eL.jpg" width="150" height="200">
 				</td>
 				
-				<td width="10" height="200">
-					<span></span>
+				<td>
+				
 				</td>
 										
 				<td class="panel-col">
-					
-					<p>
-					<strong>책 제목</strong>
+					<strong>책 제목</strong> <span class="bname"><c:out value="~책 제목~"/></span>
 					<br>
-					<strong>평점</strong>
-					</p>
-					
-					<p>
-					<strong>작성자</strong>
+					<strong>평점</strong>	 <span class="rating"><c:out value="★★★"/></span>
+					<br>
+					<strong>작성자</strong> <span class="writer"><c:out value="${boardVO.writer}"/></span>
 					<br>
 					<strong>작성일</strong>
-					<br>
-					<strong>조회수</strong>
-					</p>
-					
-				</td>
-				
-				<td width="5" height="200">
-					<span></span>
-				</td>
-				
-				<td class="panel-col">
-					<p>
-					<span class="bname"><c:out value="${boardVO.book_title}"/></span>
-					<br>
-					<span class="rating">
-						<c:forEach var='i' begin="1" end="${boardVO.rating}" step="1">★</c:forEach>
-						<c:forEach var='i' begin="${boardVO.rating}" end="4" step="1">☆</c:forEach>
-					</span>
-					</p>
-					
-					<p>
-					<span class="writer"><c:out value="${boardVO.writer}"/></span>
-					<br>
 					<span class="regdate"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}"/></span>
 					<br>
-					<span class="viewcnt">${boardVO.viewcnt}</span>
-					</p>
+					<span class="viewcnt">조회수 ${boardVO.viewcnt}</span>
 					
 				</td>
+				
 				
 				</tr>
 			</table>

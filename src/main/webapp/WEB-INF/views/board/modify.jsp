@@ -4,7 +4,7 @@
 <%@include file="../include/header.jsp"%>
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">AfterReading</h1>
+		<h1 class="page-header">2017202088</h1>
 	</div>
 </div><!-- /.row -->
 
@@ -12,77 +12,31 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 		
-			<div class="panel-heading">
-					<div class="form-group">
-						<input class="form-control" name='title' value='<c:out value="${boardVO.title}"/>'>
-					</div>
-			</div><!-- /.panel-heading -->
-			
-			<div class="panel-body">
-			<table>
-				<tr>
-				<td class="panel-col">
-					<img class="image" src="https://images-na.ssl-images-amazon.com/images/I/51UI%2BjSc4eL.jpg" width="150" height="200">
-				</td>
-				
-				<td width="10" height="200">
-					<span></span>
-				</td>
-										
-				<td class="panel-col">
-					
-					<p>
-					<strong>책 제목</strong>
-					<br>
-					<strong>평점</strong>
-					</p>
-					
-					<p>
-					<strong>작성자</strong>
-					<br>
-					<strong>작성일</strong>
-					<br>
-					<strong>조회수</strong>
-					</p>
-					
-				</td>
-				
-				<td width="5" height="200">
-					<span></span>
-				</td>
-				
-				<td class="panel-col">
-					<p>
-					<span class="bname"><c:out value="${boardVO.book_title}"/></span>
-					<br>
-					<span class="rating">
-						<c:forEach var='i' begin="1" end="${boardVO.rating}" step="1">★</c:forEach>
-						<c:forEach var='i' begin="${boardVO.rating}" end="4" step="1">☆</c:forEach>
-					</span>
-					</p>
-					
-					<p>
-					<span class="writer"><c:out value="${boardVO.writer}"/></span>
-					<br>
-					<span class="regdate"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}"/></span>
-					<br>
-					<span class="viewcnt">${boardVO.viewcnt}</span>
-					</p>
-					
-				</td>
-				
-				</tr>
-			</table>
-			</div>
+			<div class="panel-heading">Board Modify Page</div><!-- /.panel-heading -->
 			
 			<div class="panel-body">
 				
 				<form role="form" method="post" action="/board/modify">
 					<div class="form-group">
+						<label>Bno</label> <input class="form-control" name='bno'
+							value="${boardVO.bno}" readonly="readonly">
+					</div>
+				
+					<div class="form-group">
+						<label>Title</label> <input class="form-control" name='title'
+							value="${boardVO.title}" >
+					</div>
+				
+					<div class="form-group">
+						<label>Text area</label>
 						<textarea class="form-control" rows="3" name='content'
 							><c:out value="${boardVO.content}" /></textarea>
 					</div>
 					
+					<div class="form-group">
+						<label>Writer</label> <input class="form-control" name='writer'
+							value="${boardVO.writer}" readonly="readonly">
+					</div>
 					<button id="ModiBtn" class="btn btn-default">Modify</button>
 					<button id="ListBtn" class="btn btn-default" onclick="location.href='/board/list'">List</button>
 				</form>
