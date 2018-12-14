@@ -52,9 +52,12 @@
 				
 				<td class="panel-col">
 					<p>
-					<span class="bname"><c:out value="~책 제목~"/></span>
+					<span class="bname"><c:out value="${boardVO.book_title}"/></span>
 					<br>
-					<span class="rating"><c:out value="★★★"/></span>
+					<span class="rating">
+						<c:forEach var='i' begin="1" end="${boardVO.rating}" step="1">★</c:forEach>
+						<c:forEach var='i' begin="${boardVO.rating}" end="4" step="1">☆</c:forEach>
+					</span>
 					</p>
 					
 					<p>

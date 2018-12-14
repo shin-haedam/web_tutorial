@@ -57,7 +57,7 @@
 					<br>
 					<span class="rating">
 						<c:forEach var='i' begin="1" end="${boardVO.rating}" step="1">★</c:forEach>
-						<c:forEach var='i' begin="${boardVO.rating}" end="5" step="1">☆</c:forEach>
+						<c:forEach var='i' begin="${boardVO.rating}" end="4" step="1">☆</c:forEach>
 					</span>
 					</p>
 					
