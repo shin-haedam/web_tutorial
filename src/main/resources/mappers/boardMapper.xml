@@ -10,14 +10,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			  book_title,
 			  content,
 			  writer,
-			  rating
+			  rating,
+			  password
 			  )
 	VALUES
 		( #{title},
 		  #{book_title},
 		  #{content},
 		  #{writer},
-		  #{rating}
+		  #{rating},
+		  #{password}
 		   )
 	</insert>
 	
@@ -40,7 +42,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	   SET title =#{title},
 	   	   content =#{content},
 	   	   book_title =#{book_title},
-	   	   rating =#{rating}
+	   	   rating =#{rating},
+	   	   password =#{password}
 	 WHERE bno =#{bno}
 	</update>
 	

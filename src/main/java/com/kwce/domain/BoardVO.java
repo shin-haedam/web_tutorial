@@ -11,11 +11,13 @@ public class BoardVO {
 	private Date regdate;
 	private int viewcnt;
 	private int rating;
+	private int password;
 	
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", title=" + title + ", book_title=" + book_title + ", content=" + content
-				+ ", writer=" + writer + ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", rating=" + rating + "]";
+				+ ", writer=" + writer + ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", rating=" + rating
+				+ ", password=" + password + "]";
 	}
 	public Integer getBno() {
 		return bno;
@@ -65,6 +67,14 @@ public class BoardVO {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
+	public int getPassword() {
+		return password;
+	}
+	public void setPassword(int password) {
+		this.password = password;
+	}
+	
+
 	
 	
 }
