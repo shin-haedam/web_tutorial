@@ -37,8 +37,14 @@
 							<td>${boardVO.bno}</td>
 							<td><a href='/board/read?bno=${boardVO.bno}'>${boardVO.title}</a></td>
 							<td>${boardVO.book_title}</td>
-							<td><c:forEach var='i' begin="1" end="${boardVO.rating}" step="1">★</c:forEach>
-								<c:forEach var='i' begin="${boardVO.rating}" end="4" step="1">☆</c:forEach></td>
+							<td><c:choose>
+								<c:when test="${boardVO.rating == 1}">★☆☆☆☆</c:when>
+								<c:when test="${boardVO.rating == 2}">★★☆☆☆</c:when>
+								<c:when test="${boardVO.rating == 3}">★★★☆☆</c:when>
+								<c:when test="${boardVO.rating == 4}">★★★★☆</c:when>
+								<c:when test="${boardVO.rating == 5}">★★★★★</c:when>
+								<c:otherwise>☆☆☆☆☆</c:otherwise>
+							</c:choose></td>
 							<td>${boardVO.writer}</td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}" /></td>
 							<td><span class="badge bg-red">${boardVO.viewcnt}</span></td>

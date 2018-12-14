@@ -26,11 +26,11 @@
 						<label>평점</label>
 						<select class="form-control" name='rating'>
 							<option value="">평점을 선택하세요</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
+							<option value="1">★☆☆☆☆</option>
+							<option value="2">★★☆☆☆</option>
+							<option value="3">★★★☆☆</option>
+							<option value="4">★★★★☆</option>
+							<option value="5">★★★★★</option>
 						</select>						
 					</div>
 					<div class="form-group">
