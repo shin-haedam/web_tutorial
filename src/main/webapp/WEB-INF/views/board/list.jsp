@@ -24,6 +24,8 @@
 						<tr>
 							<th>#번호</th>
 							<th>제목</th>
+							<th>도서명</th>
+							<th>평점</th>
 							<th>작성자</th>
 							<th>작성일</th>
 							<th>조회수</th>
@@ -34,6 +36,8 @@
 						<tr>
 							<td>${boardVO.bno}</td>
 							<td><a href='/board/read?bno=${boardVO.bno}'>${boardVO.title}</a></td>
+							<td>${boardVO.book_title}</td>
+							<td>${boardVO.rating}
 							<td>${boardVO.writer}</td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}" /></td>
 							<td><span class="badge bg-red">${boardVO.viewcnt}</span></td>
