@@ -56,8 +56,14 @@
 					<span class="bname"><c:out value="${boardVO.book_title}"/></span>
 					<br>
 					<span class="rating">
-						<c:forEach var='i' begin="1" end="${boardVO.rating}" step="1">★</c:forEach>
-						<c:forEach var='i' begin="${boardVO.rating}" end="4" step="1">☆</c:forEach>
+						<c:choose>
+							<c:when test="${boardVO.rating == 1}">★☆☆☆☆</c:when>
+							<c:when test="${boardVO.rating == 2}">★★☆☆☆</c:when>
+							<c:when test="${boardVO.rating == 3}">★★★☆☆</c:when>
+							<c:when test="${boardVO.rating == 4}">★★★★☆</c:when>
+							<c:when test="${boardVO.rating == 5}">★★★★★</c:when>
+							<c:otherwise>☆☆☆☆☆</c:otherwise>
+						</c:choose>
 					</span>
 					</p>
 					
