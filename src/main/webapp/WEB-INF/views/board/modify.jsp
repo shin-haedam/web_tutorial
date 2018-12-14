@@ -4,7 +4,7 @@
 <%@include file="../include/header.jsp"%>
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">2017202088</h1>
+		<h1 class="page-header">AfterReading</h1>
 	</div>
 </div><!-- /.row -->
 
@@ -12,35 +12,38 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 		
-			<div class="panel-heading">Board Modify Page</div><!-- /.panel-heading -->
+			<div class="panel-heading">Review Modify</div><!-- /.panel-heading -->
 			
 			<div class="panel-body">
-				
 				<form role="form" method="post" action="/board/modify">
 					<div class="form-group">
-						<label>Bno</label> <input class="form-control" name='bno'
-							value="${boardVO.bno}" readonly="readonly">
+						<label>제목</label> <input class="form-control" name='title' value="${boardVO.title}">
 					</div>
-				
 					<div class="form-group">
-						<label>Title</label> <input class="form-control" name='title'
-							value="${boardVO.title}" >
+						<label>도서명</label> <input class="form-control" name='book_title' value="${boardVO.book_title}">
 					</div>
-				
 					<div class="form-group">
-						<label>Text area</label>
-						<textarea class="form-control" rows="3" name='content'
-							><c:out value="${boardVO.content}" /></textarea>
+						<label>평점</label>
+						<select class="form-control" name='rating'>
+							<option value="">평점을 선택하세요</option>
+							<option value="1">★☆☆☆☆</option>
+							<option value="2">★★☆☆☆</option>
+							<option value="3">★★★☆☆</option>
+							<option value="4">★★★★☆</option>
+							<option value="5">★★★★★</option>
+						</select>						
+					</div>
+					<div class="form-group">
+						<label>내용</label>
+						<textarea class="form-control" rows="3" name='content'><c:out value="${boardVO.content}" /></textarea>
+					</div>
+					<div class="form-group">
+						<label>작성자</label> <input class="form-control" name='writer' value="${boardVO.writer}"  readonly="readonly">
 					</div>
 					
-					<div class="form-group">
-						<label>Writer</label> <input class="form-control" name='writer'
-							value="${boardVO.writer}" readonly="readonly">
-					</div>
-					<button id="ModiBtn" class="btn btn-default">Modify</button>
-					<button id="ListBtn" class="btn btn-default" onclick="location.href='/board/list'">List</button>
+					<button id="ModiBtn" class="btn btn-default">수정</button>
+					<button id="ListBtn" class="btn btn-default">취소</button>
 				</form>
-				
 			</div><!-- end panel-body -->
 				
 		</div><!-- end panel -->
@@ -62,9 +65,19 @@ $(document).ready(function(){
 			$("input[name='title']").focus();
 			return false;
 		}
+		if($("input[name=book_title]").val()==""){
+			alert("도서명을 입력하세요!");
+			$("input[name='book_title']").focus();
+			return false;
+		}
+		if($("select[name=rating]").val()==""){
+			alert("평점을 선택하세요!");
+			$("select[name='rating']").focus();
+			return false;
+		}
 		if($("textarea[name=content]").val()==""){
 			alert("내용을 입력하세요!");
-			$("input[name='content']").focus();
+			$("textarea[name='content']").focus();
 			return false;
 		}
 		return true;
